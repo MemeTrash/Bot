@@ -2,11 +2,12 @@ var Bottr = require('bottr')
 var Request = require('request')
 
 var bot = new Bottr.Bot()
+var maxTextLength = 64
 
 bot.on('message_received', function(message, session) {
 
   var text = message.text.replace(/[^\w\s]/gi, '')
-  text = text.substring(0, Math.min(text.length, 64))
+  text = text.substring(0, Math.min(text.length, maxTextLength))
 
   console.log('Fetching meme for "' + text + '"')
 
