@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MemeTrash/Bot#readme",
   "dependencies": {
-    "bottr": "^0.1.3"
+    "bottr": "^0.1.3",
+    "request": "^2.74.0"
   }
 }
