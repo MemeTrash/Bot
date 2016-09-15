@@ -1,9 +1,11 @@
 var Bottr = require('bottr')
+var BottrApp = require('bottr-app')
 var Request = require('request')
 
 var bot = new Bottr.Bot()
 var maxTextLength = 64
 
+bot.use(new BottrApp())
 bot.on('message_received', function(message, session) {
 
   var text = message.text.replace(/[^\w\s]/gi, '')
