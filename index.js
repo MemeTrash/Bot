@@ -5,11 +5,14 @@ var bot = new Bottr.Bot()
 
 bot.on('message_received', function(message, session) {
 
-  console.log('Fetching meme for "' + message.text + '"')
+  var text = message.text.replace(/[^\w\s]/gi, '')
+  text = text.substring(0, Math.min(text.length, 64))
+
+  console.log('Fetching meme for "' + text + '"')
 
   Request.post('https://api.memetrash.co.uk/cat', {
     form:{
-      text: message.text
+      text: text
     }
   }, function(err, httpResponse, body) {
 
